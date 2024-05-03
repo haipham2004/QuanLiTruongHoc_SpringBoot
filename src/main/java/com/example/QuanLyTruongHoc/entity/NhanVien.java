@@ -1,5 +1,6 @@
 package com.example.QuanLyTruongHoc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,10 +41,11 @@ public class NhanVien {
     @Column(name="VaiTro")
     private String vaiTro;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name="LopID")
     private Lop lop;
 
-    @OneToMany(mappedBy = "nhanVien",cascade=CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "nhanVien",cascade=CascadeType.ALL,orphanRemoval = true)
     List<SoDauBai> soDauBaiList;
 }

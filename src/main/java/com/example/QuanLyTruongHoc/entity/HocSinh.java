@@ -1,5 +1,6 @@
 package com.example.QuanLyTruongHoc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,24 +38,28 @@ public class HocSinh {
     @Column(name="TenHocSinh")
     private String tenHocSinh;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne()
     @JoinColumn(name="LopID")
     private Lop lop;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name="PhuHuynhID")
     private PhuHuynh phuHuynh;
 
-    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL,orphanRemoval = true)
     List<SoHocBa> soHocBaList;
 
-    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL,orphanRemoval = true)
     List<PhieuDiem> phieuDiemList;
 
-    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL,orphanRemoval = true)
     List<TheHocSinh> theHocSinhList;
 
-    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL,orphanRemoval = true)
     List<BangDiem> bangDiemList;
 
 }
