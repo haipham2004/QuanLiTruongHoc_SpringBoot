@@ -77,16 +77,10 @@ public class LopServiceImp implements TruongHocService<Lop, Integer> {
     @Override
     @Transactional
     public void delete(Integer id) {
-//        phieuDiemServiceImp.delete(id);
-//        bangDiemServiceImp.delete(id);
         monHocServiceImp.delete(id);
-//        phuHuynhServiceImp.delete(id);
-//        soHocBaServiceImp.delete(id);
-//        soDauBaiServiceImp.delete(id);
-//        theHocSinhServiceImp.delete(id);
+        phuHuynhServiceImp.delete(id);
         hocSinhServiceImp.delete(id);
         nhanVienServiceImp.delete(id);
-
         lopRepository.deleteById(id);
     }
 

@@ -3,6 +3,7 @@ package com.example.QuanLyTruongHoc.rest;
 import com.example.QuanLyTruongHoc.entity.Lop;
 import com.example.QuanLyTruongHoc.entity.Truong;
 import com.example.QuanLyTruongHoc.service.serviceImp.LopServiceImp;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,6 +74,7 @@ public class LopRest {
 // Chúng ta phải cashCase:remove ở những bảng chứa khoá chính nhé
 
     @DeleteMapping("/{id}")
+    @JsonIgnore
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         Lop lopTonTai=lopServiceImp.getOneLazy(id);
         if(lopTonTai!=null){

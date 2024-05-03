@@ -51,7 +51,7 @@ public class Lop {
     @JoinColumn(name="TruongID")
     private Truong truong;
 
-    @OneToMany(mappedBy = "lop",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "lop",cascade=CascadeType.ALL,orphanRemoval = true)
     List<NhanVien> nhanVienList;
 
 
