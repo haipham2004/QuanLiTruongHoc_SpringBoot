@@ -44,6 +44,7 @@ public class LopServiceImp implements TruongHocService<Lop, Integer> {
     @Override
     @Transactional
     public void delete(Integer id) {
+        //ok done haha
         lopRepository.deleteById(id);
     }
 
