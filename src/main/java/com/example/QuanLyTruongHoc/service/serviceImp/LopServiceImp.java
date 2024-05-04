@@ -13,44 +13,11 @@ import java.util.Optional;
 @Service
 public class LopServiceImp implements TruongHocService<Lop, Integer> {
 
-    private PhuHuynhServiceImp phuHuynhServiceImp;
-
     private LopRepository lopRepository;
 
-    private BangDiemServiceImp bangDiemServiceImp;
-
-    private PhieuDiemServiceImp phieuDiemServiceImp;
-
-    private MonHocServiceImp monHocServiceImp;
-
-    private SoHocBaServiceImp soHocBaServiceImp;
-
-    private TheHocSinhServiceImp theHocSinhServiceImp;
-
-    private HocSinhServiceImp hocSinhServiceImp;
-
-    private SoDauBaiServiceImp soDauBaiServiceImp;
-
-    private NhanVienServiceImp nhanVienServiceImp;
-
-
-
     @Autowired
-    public LopServiceImp(PhuHuynhServiceImp phuHuynhServiceImp,LopRepository lopRepository,
-                         BangDiemServiceImp bangDiemServiceImp,MonHocServiceImp monHocServiceImp,
-                         PhieuDiemServiceImp phieuDiemServiceImp, SoHocBaServiceImp soHocBaServiceImp,
-                         TheHocSinhServiceImp theHocSinhServiceImp, HocSinhServiceImp hocSinhServiceImp,
-                         SoDauBaiServiceImp soDauBaiServiceImp, NhanVienServiceImp nhanVienServiceImp) {
-        this.phuHuynhServiceImp=phuHuynhServiceImp;
+    public LopServiceImp(LopRepository lopRepository) {
         this.lopRepository = lopRepository;
-        this.bangDiemServiceImp = bangDiemServiceImp;
-        this.phieuDiemServiceImp = phieuDiemServiceImp;
-        this.monHocServiceImp=monHocServiceImp;
-        this.soHocBaServiceImp = soHocBaServiceImp;
-        this.theHocSinhServiceImp = theHocSinhServiceImp;
-        this.hocSinhServiceImp = hocSinhServiceImp;
-        this.soDauBaiServiceImp = soDauBaiServiceImp;
-        this.nhanVienServiceImp = nhanVienServiceImp;
     }
 
     @Override
@@ -77,10 +44,6 @@ public class LopServiceImp implements TruongHocService<Lop, Integer> {
     @Override
     @Transactional
     public void delete(Integer id) {
-        monHocServiceImp.delete(id);
-        phuHuynhServiceImp.delete(id);
-        hocSinhServiceImp.delete(id);
-        nhanVienServiceImp.delete(id);
         lopRepository.deleteById(id);
     }
 
