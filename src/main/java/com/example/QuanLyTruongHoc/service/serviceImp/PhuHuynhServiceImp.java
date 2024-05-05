@@ -21,22 +21,22 @@ public class PhuHuynhServiceImp implements TruongHocService<PhuHuynh, Integer> {
 
     @Override
     public List<PhuHuynh> getAll() {
-        return null;
+        return phuHuynhRepository.findAll();
     }
 
     @Override
     public Optional<PhuHuynh> getOne(Integer id) {
-        return Optional.empty();
+        return phuHuynhRepository.findById(id);
     }
 
     @Override
     public PhuHuynh save(PhuHuynh phuHuynh) {
-        return null;
+        return phuHuynhRepository.save(phuHuynh);
     }
 
     @Override
     public PhuHuynh update(PhuHuynh phuHuynh) {
-        return null;
+        return phuHuynhRepository.saveAndFlush(phuHuynh);
     }
 
     @Override
@@ -57,6 +57,11 @@ public class PhuHuynhServiceImp implements TruongHocService<PhuHuynh, Integer> {
     @Override
     public PhuHuynh getOneLazy(Integer id) {
         return null;
+    }
+
+    @Override
+    public void softDeleteById(int id) {
+
     }
 
 }

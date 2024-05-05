@@ -42,11 +42,11 @@ public class MonHoc {
     private String giaoVienPhuTrach;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "monHoc",cascade= CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "monHoc",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<BangDiem> bangDiemList;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "monHoc",cascade= CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "monHoc",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<PhieuDiem> phieuDiemList;
 
 }

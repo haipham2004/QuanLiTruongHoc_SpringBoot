@@ -60,4 +60,9 @@ public class MonHocServiceImp implements TruongHocService<MonHoc, Integer> {
     public MonHoc getOneLazy(Integer id) {
         return null;
     }
+
+    @Override
+    public void softDeleteById(int id) {
+
+    }
 }

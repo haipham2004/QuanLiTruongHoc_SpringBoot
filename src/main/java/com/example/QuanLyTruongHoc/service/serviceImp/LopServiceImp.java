@@ -2,6 +2,7 @@ package com.example.QuanLyTruongHoc.service.serviceImp;
 
 import com.example.QuanLyTruongHoc.entity.Lop;
 import com.example.QuanLyTruongHoc.repository.LopRepository;
+import com.example.QuanLyTruongHoc.repository.PhuHuynhRepository;
 import com.example.QuanLyTruongHoc.service.TruongHocService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,9 @@ public class LopServiceImp implements TruongHocService<Lop, Integer> {
 
     private LopRepository lopRepository;
 
+
     @Autowired
-    public LopServiceImp(LopRepository lopRepository) {
+    public LopServiceImp( LopRepository lopRepository) {
         this.lopRepository = lopRepository;
     }
 
@@ -44,6 +46,8 @@ public class LopServiceImp implements TruongHocService<Lop, Integer> {
     @Override
     @Transactional
     public void delete(Integer id) {
+        //ok done haha
+//        phuHuynhRepository.deleteById(id);
         lopRepository.deleteById(id);
     }
 
@@ -61,5 +65,10 @@ public class LopServiceImp implements TruongHocService<Lop, Integer> {
     @Override
     public Lop getOneLazy(Integer id) {
         return lopRepository.getOneLazy(id);
+    }
+
+    @Override
+    public void softDeleteById(int id) {
+
     }
 }

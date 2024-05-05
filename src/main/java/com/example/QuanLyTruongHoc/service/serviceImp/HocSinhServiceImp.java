@@ -60,4 +60,9 @@ public class HocSinhServiceImp implements TruongHocService<HocSinh, Integer> {
     public HocSinh getOneLazy(Integer id) {
         return null;
     }
+
+    @Override
+    public void softDeleteById(int id) {
+
+    }
 }

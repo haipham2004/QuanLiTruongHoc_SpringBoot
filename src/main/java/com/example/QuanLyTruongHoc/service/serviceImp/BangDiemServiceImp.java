@@ -60,4 +60,9 @@ public class BangDiemServiceImp implements TruongHocService<BangDiem,Integer> {
     public BangDiem getOneLazy(Integer id) {
         return null;
     }
+
+    @Override
+    public void softDeleteById(int id) {
+
+    }
 }

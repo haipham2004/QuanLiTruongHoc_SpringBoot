@@ -2,10 +2,12 @@ package com.example.QuanLyTruongHoc.service.serviceImp;
 
 import com.example.QuanLyTruongHoc.entity.Lop;
 import com.example.QuanLyTruongHoc.entity.Truong;
+import com.example.QuanLyTruongHoc.repository.PhuHuynhRepository;
 import com.example.QuanLyTruongHoc.repository.TruongRepository;
 import com.example.QuanLyTruongHoc.service.TruongHocService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,9 +17,13 @@ public class TruongServiceImp implements TruongHocService<Truong, Integer> {
 
     private TruongRepository truongRepository;
 
+    private PhuHuynhRepository phuHuynhRepository;
+
+
     @Autowired
-    public TruongServiceImp(TruongRepository truongRepository) {
+    public TruongServiceImp(TruongRepository truongRepository, PhuHuynhRepository phuHuynhRepository) {
         this.truongRepository = truongRepository;
+        this.phuHuynhRepository = phuHuynhRepository;
     }
 
     @Override
@@ -41,6 +47,7 @@ public class TruongServiceImp implements TruongHocService<Truong, Integer> {
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
         truongRepository.deleteById(id);
     }
@@ -59,4 +66,16 @@ public class TruongServiceImp implements TruongHocService<Truong, Integer> {
     public Truong getOneLazy(Integer id) {
         return null;
     }
+
+    @Override
+    @Transactional
+    public void softDeleteById(int id) {
+        Optional<Truong> truongOptional = truongRepository.findById(id);
+        if(truongOptional.isPresent()){
+            Truong truongTonTai=truongOptional.get();
+            truongTonTai.setDeleted(true);
+            truongRepository.save(truongTonTai);
+        }
+    }
+
 }

@@ -10,7 +10,8 @@ CREATE TABLE Truong (
     TruongID INT identity(1,1) PRIMARY KEY,
     TenTruong NVARCHAR(100),
     DiaChi NVARCHAR(200),
-    SoDienThoai NVARCHAR(15)
+    SoDienThoai NVARCHAR(15),
+	deleted bit --1:true 2:false
 );
 
 -- Tạo bảng Lớp
@@ -111,17 +112,17 @@ CREATE TABLE TheHocSinh (
 );
 
 -- Chèn dữ liệu vào bảng Truong
-INSERT INTO Truong (TenTruong, DiaChi, SoDienThoai) VALUES
-(N'Trường THPT Yên Khánh A', N'Khánh Hội, Yên Khánh, Ninh Bình', '0334294889'),
-(N'Trường A', N'Địa chỉ A', '1234567890'),
-(N'Trường B', N'Địa chỉ B', '0987654321'),
-(N'Trường C', N'Địa chỉ C', '0123456789'),
-(N'Trường D', N'Địa chỉ D', '9876543210'),
-(N'Trường E', N'Địa chỉ E', '5555555555'),
-(N'Trường F', N'Địa chỉ F', '6666666666'),
-(N'Trường G', N'Địa chỉ G', '7777777777'),
-(N'Trường H', N'Địa chỉ H', '8888888888'),
-(N'Trường I', N'Địa chỉ I', '9999999999')
+INSERT INTO Truong (TenTruong, DiaChi, SoDienThoai,deleted) VALUES
+(N'Trường THPT Yên Khánh A', N'Khánh Hội, Yên Khánh, Ninh Bình', '0334294889',0),
+(N'Trường A', N'Địa chỉ A', '1234567890',0),
+(N'Trường B', N'Địa chỉ B', '0987654321',0),
+(N'Trường C', N'Địa chỉ C', '0123456789',0),
+(N'Trường D', N'Địa chỉ D', '9876543210',0),
+(N'Trường E', N'Địa chỉ E', '5555555555',0),
+(N'Trường F', N'Địa chỉ F', '6666666666',0),
+(N'Trường G', N'Địa chỉ G', '7777777777',0),
+(N'Trường H', N'Địa chỉ H', '8888888888',0),
+(N'Trường I', N'Địa chỉ I', '9999999999',0)
 
 -- Chèn dữ liệu vào bảng Lop
 INSERT INTO Lop (TenLop, KhoiHoc, NienKhoa, GiaoVienChuNhiem, TruongID) VALUES

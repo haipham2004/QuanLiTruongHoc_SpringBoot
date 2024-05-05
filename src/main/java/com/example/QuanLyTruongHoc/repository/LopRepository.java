@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface LopRepository extends JpaRepository<Lop,Integer> {
 
-    @Query("SELECT DISTINCT l FROM Lop l JOIN FETCH l.truong")
+    @Query("SELECT DISTINCT l FROM Lop l JOIN FETCH l.truong where l.truong.deleted=false")
     public List<Lop> getAllLazy();
 
     @Query("SELECT DISTINCT l FROM Lop l LEFT JOIN FETCH l.truong WHERE l.lopId = ?1")

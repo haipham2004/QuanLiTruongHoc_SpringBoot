@@ -60,4 +60,9 @@ public class PhieuDiemServiceImp implements TruongHocService<PhieuDiem, Integer>
     public PhieuDiem getOneLazy(Integer id) {
         return null;
     }
+
+    @Override
+    public void softDeleteById(int id) {
+
+    }
 }

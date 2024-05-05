@@ -47,19 +47,19 @@ public class HocSinh {
     private PhuHuynh phuHuynh;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "hocSinh",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<SoHocBa> soHocBaList;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "hocSinh",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<PhieuDiem> phieuDiemList;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "hocSinh",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<TheHocSinh> theHocSinhList;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "hocSinh",cascade=CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "hocSinh",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<BangDiem> bangDiemList;
 
 }

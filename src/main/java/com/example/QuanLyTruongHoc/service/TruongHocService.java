@@ -22,4 +22,6 @@ public interface TruongHocService<E,K> {
     public List<E> getAllLazy();
 
     public E getOneLazy(K id);
+
+    public void softDeleteById(int id);
 }

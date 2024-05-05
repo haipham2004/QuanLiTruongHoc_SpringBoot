@@ -59,4 +59,9 @@ public class SoHocBaServiceImp implements TruongHocService<SoHocBa, Integer> {
     public SoHocBa getOneLazy(Integer id) {
         return null;
     }
+
+    @Override
+    public void softDeleteById(int id) {
+
+    }
 }
