@@ -42,4 +42,7 @@ public class SoHocBa {
 
     @Column(name="NhanXet")
     private String nhanXet;
+
+    @Column(name="deleted")
+    private boolean deleted;
 }

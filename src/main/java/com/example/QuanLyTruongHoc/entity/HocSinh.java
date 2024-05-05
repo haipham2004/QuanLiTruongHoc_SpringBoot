@@ -62,4 +62,7 @@ public class HocSinh {
     @OneToMany(mappedBy = "hocSinh",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<BangDiem> bangDiemList;
 
+    @Column(name="deleted")
+    private boolean deleted;
+
 }

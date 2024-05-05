@@ -45,5 +45,8 @@ public class PhieuDiem {
 
     @Column(name="Diem")
     private float diem;
+
+    @Column(name="deleted")
+    private boolean deleted;
 }
 

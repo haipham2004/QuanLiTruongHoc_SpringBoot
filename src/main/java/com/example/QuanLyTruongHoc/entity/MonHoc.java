@@ -49,4 +49,7 @@ public class MonHoc {
     @OneToMany(mappedBy = "monHoc",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<PhieuDiem> phieuDiemList;
 
+    @Column(name="deleted")
+    private boolean deleted;
+
 }

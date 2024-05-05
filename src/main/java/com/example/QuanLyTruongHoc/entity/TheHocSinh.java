@@ -42,5 +42,8 @@ public class TheHocSinh {
 
     @Column(name="ThongTinLienLac")
     private String thongTinLienLac;
+
+    @Column(name="deleted")
+    private boolean deleted;
 }
 

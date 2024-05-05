@@ -46,8 +46,6 @@ public class LopServiceImp implements TruongHocService<Lop, Integer> {
     @Override
     @Transactional
     public void delete(Integer id) {
-        //ok done haha
-//        phuHuynhRepository.deleteById(id);
         lopRepository.deleteById(id);
     }
 
@@ -69,6 +67,11 @@ public class LopServiceImp implements TruongHocService<Lop, Integer> {
 
     @Override
     public void softDeleteById(int id) {
-
+       Optional<Lop> lopExist=lopRepository.findById(id);
+       if(lopExist.isPresent()){
+           Lop lopDelete=lopExist.get();
+           lopDelete.setDeleted(true);
+           lopRepository.saveAndFlush(lopDelete);
+       }
     }
 }

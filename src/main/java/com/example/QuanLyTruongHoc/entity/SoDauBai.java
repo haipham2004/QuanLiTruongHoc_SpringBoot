@@ -46,5 +46,7 @@ public class SoDauBai {
     @Column(name="NoiDungBaiGiang")
     private String noiDungBaiGiang;
 
+    @Column(name="deleted")
+    private boolean deleted;
 
 }

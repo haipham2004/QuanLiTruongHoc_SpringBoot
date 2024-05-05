@@ -45,6 +45,9 @@ public class BangDiem {
     @Column(name="Diem")
     private double diem;
 
+    @Column(name="deleted")
+    private boolean deleted;
+
 
 
 }

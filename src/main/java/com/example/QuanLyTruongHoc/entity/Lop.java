@@ -56,4 +56,7 @@ public class Lop {
     @OneToMany(mappedBy = "lop",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<NhanVien> nhanVienList;
 
+    @Column(name="deleted")
+    private boolean deleted;
+
 }

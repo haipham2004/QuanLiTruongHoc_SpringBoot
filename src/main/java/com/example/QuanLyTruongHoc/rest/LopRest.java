@@ -75,7 +75,6 @@ public class LopRest {
 // Chúng ta phải cashCase:remove ở những bảng chứa khoá chính nhé
 
     @DeleteMapping("/{id}")
-    @JsonIgnore
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         Lop lopTonTai=lopServiceImp.getOneLazy(id);
         if(lopTonTai!=null){
@@ -84,6 +83,16 @@ public class LopRest {
         }else{
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @DeleteMapping("/deleted/{id}")
+    public ResponseEntity<?> softDeleteTruong(@PathVariable int id) {
+        Optional<Lop> loplopExist = lopServiceImp.getOne(id);
+        if (loplopExist.isPresent()) {
+            lopServiceImp.softDeleteById(id);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }

@@ -48,4 +48,7 @@ public class NhanVien {
     @JsonIgnore
     @OneToMany(mappedBy = "nhanVien",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<SoDauBai> soDauBaiList;
+
+    @Column(name="deleted")
+    private boolean deleted;
 }

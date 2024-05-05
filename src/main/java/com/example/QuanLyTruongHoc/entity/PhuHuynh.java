@@ -44,4 +44,7 @@ public class PhuHuynh {
     @JsonIgnore
     @OneToMany(mappedBy = "phuHuynh",cascade= CascadeType.ALL,orphanRemoval = true)
     List<HocSinh> hocSinhList;
+
+    @Column(name="deleted")
+    private boolean deleted;
 }
