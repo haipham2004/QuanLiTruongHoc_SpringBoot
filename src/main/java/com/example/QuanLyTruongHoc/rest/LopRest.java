@@ -2,6 +2,7 @@ package com.example.QuanLyTruongHoc.rest;
 
 import com.example.QuanLyTruongHoc.entity.Lop;
 import com.example.QuanLyTruongHoc.entity.Truong;
+import com.example.QuanLyTruongHoc.service.TruongHocService;
 import com.example.QuanLyTruongHoc.service.serviceImp.LopServiceImp;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ import java.util.Optional;
 @RequestMapping("/api/Lop")
 public class LopRest {
 
-    private LopServiceImp lopServiceImp;
+     private TruongHocService<Lop,Integer> lopServiceImp;
 
     @Autowired
     public LopRest(LopServiceImp lopServiceImp) {

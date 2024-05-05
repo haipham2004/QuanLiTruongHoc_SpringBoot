@@ -42,7 +42,10 @@ public class Truong {
     @Column(name="SoDienThoai")
     private String soDienThoai;
 
-    @OneToMany(mappedBy = "truong",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST})
+    @OneToMany(mappedBy = "truong",cascade =CascadeType.ALL)
     @JsonIgnore
     private List<Lop> lop;
+
+    @Column(name="deleted")
+    private boolean deleted;
 }

@@ -61,4 +61,9 @@ public class SoDauBaiServiceImp implements TruongHocService<SoDauBai, Integer> {
     public SoDauBai getOneLazy(Integer id) {
         return null;
     }
+
+    @Override
+    public void softDeleteById(int id) {
+
+    }
 }

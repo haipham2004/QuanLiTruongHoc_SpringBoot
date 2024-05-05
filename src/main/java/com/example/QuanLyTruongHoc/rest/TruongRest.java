@@ -1,9 +1,11 @@
 package com.example.QuanLyTruongHoc.rest;
 
-import com.example.QuanLyTruongHoc.entity.NhanVien;
+
 import com.example.QuanLyTruongHoc.entity.Truong;
+import com.example.QuanLyTruongHoc.service.TruongHocService;
 import com.example.QuanLyTruongHoc.service.serviceImp.TruongServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,10 +24,11 @@ import java.util.Optional;
 @RequestMapping("/api/Truong")
 public class TruongRest {
 
-    private TruongServiceImp truongServiceImp;
+    private TruongHocService<Truong, Integer> truongServiceImp;
+
 
     @Autowired
-    public TruongRest(TruongServiceImp truongServiceImp) {
+    public TruongRest(@Qualifier("truongServiceImp") TruongServiceImp truongServiceImp) {
         this.truongServiceImp = truongServiceImp;
     }
 
@@ -81,5 +84,13 @@ public class TruongRest {
         }
     }
 
-
+    @DeleteMapping("/deleted/{id}")
+    public ResponseEntity<?> softDeleteTruong(@PathVariable int id) {
+        Optional<Truong> truongTonTai = truongServiceImp.getOne(id);
+        if (truongTonTai.isPresent()) {
+            truongServiceImp.softDeleteById(id);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

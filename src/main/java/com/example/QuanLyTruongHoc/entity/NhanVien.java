@@ -46,6 +46,6 @@ public class NhanVien {
     private Lop lop;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "nhanVien",cascade=CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "nhanVien",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},orphanRemoval = true)
     List<SoDauBai> soDauBaiList;
 }

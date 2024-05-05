@@ -22,22 +22,22 @@ public class NhanVienServiceImp implements TruongHocService<NhanVien,Integer> {
 
     @Override
     public List<NhanVien> getAll() {
-        return null;
+        return nhanVienRepository.findAll();
     }
 
     @Override
     public Optional<NhanVien> getOne(Integer id) {
-        return Optional.empty();
+        return nhanVienRepository.findById(id);
     }
 
     @Override
     public NhanVien save(NhanVien nhanVien) {
-        return null;
+        return nhanVienRepository.save(nhanVien);
     }
 
     @Override
     public NhanVien update(NhanVien nhanVien) {
-        return null;
+        return nhanVienRepository.saveAndFlush(nhanVien);
     }
 
     @Override
@@ -58,5 +58,10 @@ public class NhanVienServiceImp implements TruongHocService<NhanVien,Integer> {
     @Override
     public NhanVien getOneLazy(Integer id) {
         return null;
+    }
+
+    @Override
+    public void softDeleteById(int id) {
+
     }
 }
